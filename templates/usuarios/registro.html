@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+<div class="col">
+    <h2>Registro</h2>
+
+    <form method="post">
+    {% csrf_token %}
+    
+    {% for m in form%}
+    <div class="form-group">
+        {{m.label_tag}}
+        {{m}}
+
+        {% if m.errors %}
+        {{m.errors}}  
+        {% endif %}
+
+    </div>
+    {%endfor%} 
+        
+
+    <button type="submit" class="btn btn-primary mt-2">Registrar</button>
+    </form>
+</div>
+
+
+{% endblock %}

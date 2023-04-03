@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="row">
+    {% for product in product_list %}
+    <div class="col-3 mt-5">
+        <div class="card h-100">
+            {% if product.image %} <!-- si existe quiero que la pintes  -->
+            <img src="{{ product.image.url }}" alt="ImagenProducto" height="300" width="300">
+            {% endif %}
+            <div class="card-body"> <!-- se encarga de mostrar todo el contenido  -->
+                <h5 class="card-title">{{ product.title }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <a href="#" class="btn btn-primary">Ver Detalles</a>
+
+            </div>    
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
